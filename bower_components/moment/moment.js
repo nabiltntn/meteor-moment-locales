@@ -2780,6 +2780,9 @@
     ************************************/
 
     function makeGlobal(shouldDeprecate) {
+        if (typeof Meteor !== 'undefined') {
+            Meteor.__moment = moment;
+        }
         /*global ender:false */
         if (typeof ender !== 'undefined') {
             return;

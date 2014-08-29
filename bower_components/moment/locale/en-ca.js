@@ -7,6 +7,8 @@
         define(['moment'], factory); // AMD
     } else if (typeof exports === 'object') {
         module.exports = factory(require('../moment')); // Node
+    } else if (typeof Meteor === 'object' && typeof globals === 'object') {
+        factory(globals);
     } else {
         factory(window.moment); // Browser global
     }

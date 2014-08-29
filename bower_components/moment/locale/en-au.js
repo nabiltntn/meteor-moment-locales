@@ -7,7 +7,7 @@
     } else if (typeof exports === 'object') {
         module.exports = factory(require('../moment')); // Node
     } else {
-        factory(window.moment); // Browser global
+        factory(moment); // Browser global -- unsafe for the purposes of Meteor
     }
 }(function (moment) {
     return moment.defineLocale('en-au', {

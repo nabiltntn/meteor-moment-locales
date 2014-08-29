@@ -1,14 +1,24 @@
 // moment.js locale configuration
 // locale : great britain english (en-gb)
 // author : Chris Gedrim : https://github.com/chrisgedrim
+//
 
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
+        console.log('AMD route');
         define(['moment'], factory); // AMD
     } else if (typeof exports === 'object') {
+        console.log('Node route');
         module.exports = factory(require('../moment')); // Node
+    } else if (typeof Meteor === 'object' && typeof global === 'object') {
+        console.log('Meteor Server route');
+        factory(global.moment); // Meteor server
+    } else if (typeof window === 'object') {
+        console.log('Browser route');
+        factory(window.moment); // Any browser global
     } else {
-        factory(window.moment); // Browser global
+        console.warn('Moment is being loaded through a language global!');
+        factory(moment); // Language global -- last resort
     }
 }(function (moment) {
     return moment.defineLocale('en-gb', {

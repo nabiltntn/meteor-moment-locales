@@ -1,13 +1,15 @@
 Package.describe({
   summary: "A Meteor 0.9 package for moment.js including support for locales",
-  version: "0.2.8.2",
+  version: "0.0.1",
   git: "localhost"
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.0');
-  api.addFiles(['en-au.js', 'en-gb.js'].map(function(f) { return 'bower_components/moment/locale/' + f; }), ['client', 'server']);
-  api.addFiles(['bower_components/moment/min/moment.js'], ['client', 'server']);
+  api.addFiles(['./bower_components/moment/moment.js'], ['server', 'client']);
+  api.addFiles([/*'en-au.js', */'en-gb.js'].map(function(f) { return './bower_components/moment/locale/' + f; }), ['client', 'server']);
+  api.addFiles('flamparski:moment-locales.js', ['client', 'server']);
+  api.export(['moment']);
 });
 
 Package.onTest(function(api) {
