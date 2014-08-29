@@ -5,16 +5,12 @@
 
 (function (factory) {
     if (typeof define === 'function' && define.amd) {
-        console.log('AMD route');
         define(['moment'], factory); // AMD
     } else if (typeof exports === 'object') {
-        console.log('Node route');
         module.exports = factory(require('../moment')); // Node
     } else if (typeof Meteor === 'object' && typeof global === 'object') {
-        console.log('Meteor Server route');
         factory(global.moment); // Meteor server
     } else if (typeof window === 'object') {
-        console.log('Browser route');
         factory(window.moment); // Any browser global
     } else {
         console.warn('Moment is being loaded through a language global!');

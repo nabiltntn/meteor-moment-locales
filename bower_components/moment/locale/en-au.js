@@ -6,8 +6,13 @@
         define(['moment'], factory); // AMD
     } else if (typeof exports === 'object') {
         module.exports = factory(require('../moment')); // Node
+    } else if (typeof Meteor === 'object' && typeof global === 'object') {
+        factory(global.moment); // Meteor server
+    } else if (typeof window === 'object') {
+        factory(window.moment); // Any browser global
     } else {
-        factory(moment); // Browser global -- unsafe for the purposes of Meteor
+        console.warn('Moment is being loaded through a language global!');
+        factory(moment); // Language global -- last resort
     }
 }(function (moment) {
     return moment.defineLocale('en-au', {
