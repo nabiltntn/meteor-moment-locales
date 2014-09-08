@@ -1,6 +1,6 @@
 Package.describe({
   summary: "A Meteor 0.9 package for moment.js including support for locales",
-  version: "0.0.1",
+  version: "0.0.2",
   git: "https://github.com/FLamparski/meteor-moment-locales"
 });
 
