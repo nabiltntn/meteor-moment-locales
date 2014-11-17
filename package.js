@@ -10,7 +10,8 @@ var core = [
 
 var locales = [
   'bower_components/moment/locale/en-au.js',
-  'bower_components/moment/locale/en-gb.js'
+  'bower_components/moment/locale/en-gb.js',
+  'bower_components/moment/locale/fr.js'
 ];
 
 var exporter = [
